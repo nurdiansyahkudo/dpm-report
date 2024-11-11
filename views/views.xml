@@ -1,0 +1,38 @@
+<odoo>
+    <!-- Sales Order Tree -->
+    <record id="view_sale_order_tree_inherit" model="ir.ui.view">
+        <field name="name">sale.order.tree.inherit.remarks</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_tree"/>
+        <field name="arch" type="xml">
+            <!-- Menambahkan kolom Brand -->
+            <xpath expr="//tree[@class='o_sale_order']/field[@name='date_order']" position="after">
+                <field name="brand" string="Brand" optional="show"/>
+            </xpath>
+            
+            <!-- Menambahkan kolom Remarks -->
+            <xpath expr="//tree[@class='o_sale_order']/field[@name='partner_id']" position="after">
+                <field name="note" string="Remarks" optional="show"/> 
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Quotation Tree -->
+    <record id="view_quotation_tree_inherit" model="ir.ui.view">
+        <field name="name">sale.order.quotation.tree.inherit.remarks</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding"/>
+        <field name="arch" type="xml">
+            <!-- Menambahkan kolom Brand -->
+            <xpath expr="//tree/field[@name='create_date']" position="after">
+                <field name="brand" string="Brand" optional="show"/>
+            </xpath>
+            
+            <!-- Menambahkan kolom Remarks -->
+            <xpath expr="//tree/field[@name='partner_id']" position="after">
+                <field name="note" string="Remarks" optional="show"/> 
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

@@ -12,7 +12,7 @@
             
             <!-- Menambahkan kolom Remarks -->
             <xpath expr="//tree[@class='o_sale_order']/field[@name='partner_id']" position="after">
-                <field name="note" string="Remarks" optional="show"/> 
+                <field name="note" string="Remarks" optional="show"/>
             </xpath>
         </field>
     </record>
@@ -30,7 +30,7 @@
             
             <!-- Menambahkan kolom Remarks -->
             <xpath expr="//tree/field[@name='partner_id']" position="after">
-                <field name="note" string="Remarks" optional="show"/> 
+                <field name="note" string="Remarks" optional="show"/>
             </xpath>
         </field>
     </record>

@@ -11,8 +11,8 @@ class SaleOrderRemarks(models.Model):
     brand = fields.Char(
         string='Brand',
         compute="_compute_brand",
-        search="_search_brand",  # Menambahkan fungsi pencarian 
-        store=True,  # Store is set to True for better performance
+        search="_search_brand", 
+        store=True,  
     )
 
     @api.depends('order_line')

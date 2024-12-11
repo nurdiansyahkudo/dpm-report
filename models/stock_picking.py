@@ -5,7 +5,8 @@ class StockPicking(models.Model):
 
     @api.model
     def create(self, vals):
-        res = super(StockPicking, self).create(vals)
-        if res.sale_id:
-            res.note = res.sale_id.note
-        return res
+        if 'origin' in vals:
+            sale_order = self.env['sale.order'].search([('name', '=', vals['origin'])], limit=1)
+            if sale_order:
+                vals['note'] = sale_order.note
+        return super(StockPicking, self).create(vals)

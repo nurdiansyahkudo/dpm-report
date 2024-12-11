@@ -5,13 +5,8 @@ class AccountMove(models.Model):
 
     @api.model
     def create(self, vals):
-        if vals.get('order_id'):
-            sale_order = self.env['sale.order'].browse(vals['order_id'])
-            vals['narration'] = sale_order.note
+        if 'invoice_origin' in vals:
+            sale_order = self.env['sale.order'].search([('name', '=', vals['invoice_origin'])], limit=1)
+            if sale_order:
+                vals['narration'] = sale_order.note
         return super(AccountMove, self).create(vals)
-
-    def write(self, vals):
-        if vals.get('order_id'):
-            sale_order = self.env['sale.order'].browse(vals['order_id'])
-            vals['narration'] = sale_order.note
-        return super(AccountMove, self).write(vals)

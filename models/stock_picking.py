@@ -5,13 +5,7 @@ class StockPicking(models.Model):
 
     @api.model
     def create(self, vals):
-        if vals.get('sale_id'):
-            sale_order = self.env['sale.order'].browse(vals['sale_id'])
-            vals['note'] = sale_order.note
-        return super(StockPicking, self).create(vals)
-
-    def write(self, vals):
-        if vals.get('sale_id'):
-            sale_order = self.env['sale.order'].browse(vals['sale_id'])
-            vals['note'] = sale_order.note
-        return super(StockPicking, self).write(vals)
+        res = super(StockPicking, self).create(vals)
+        if res.sale_id:
+            res.note = res.sale_id.note
+        return res

@@ -7,7 +7,7 @@
     """,
     'category': 'Sales',
     'author': 'PT. Lintang Utama Infotek',
-    'depends': ['sale'],
+    'depends': ['sale', 'account', 'stock'],
     'data': [
         'views/views.xml',
     ],

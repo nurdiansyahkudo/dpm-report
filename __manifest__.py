@@ -10,6 +10,7 @@
     'depends': ['sale', 'account', 'stock'],
     'data': [
         'views/views.xml',
+        'views/product_template_view.xml',
     ],
     'installable': True,
     'application': False,

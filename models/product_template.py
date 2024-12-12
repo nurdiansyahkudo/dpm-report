@@ -9,4 +9,5 @@ class ProductTemplate(models.Model):
         digits='Product Price', groups="stock.group_stock_manager",
         help="""Value of the product (automatically computed in AVCO).
         Used to value the product when the purchase cost is not known (e.g. inventory adjustment).
-        Used to compute margins on sale orders.""")
+        Used to compute margins on sale orders.""",
+        invisible="1")

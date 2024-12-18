@@ -6,7 +6,7 @@
         <field name="inherit_id" ref="product.product_template_only_form_view"/>
         <field name="arch" type="xml">
             <xpath expr="//div[@name='pricing']" position="replace">
-                <div name="pricing" class="o_row" groups="sale.group_sale_manager, account.group_account_manager">
+                <div name="pricing" class="o_row" groups="sales_team.group_sale_manager, account.group_account_manager">
                     <field name="list_price" class="oe_inline" widget='monetary' options="{'currency_field': 'currency_id', 'field_digits': True}"/>
                 </div>                     
             </xpath>

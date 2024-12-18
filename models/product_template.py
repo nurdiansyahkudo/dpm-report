@@ -7,7 +7,7 @@ class ProductTemplate(models.Model):
         'Sales Price', default=1.0,
         digits='Product Price',
         help="Price at which the product is sold to customers.",
-        groups="account.group_account_manager, sale.group_sale_manager",
+        groups="account.group_account_manager, sales_team.group_sale_manager",
     )
   standard_price = fields.Float(
         'Cost', compute='_compute_standard_price',

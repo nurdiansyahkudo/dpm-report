@@ -3,6 +3,12 @@ from odoo import fields, models
 class ProductTemplate(models.Model):
   _inherit = "product.template"
 
+  list_price = fields.Float(
+        'Sales Price', default=1.0,
+        digits='Product Price',
+        help="Price at which the product is sold to customers.",
+        groups="account.group_account_manager, sale.group_sale_manager",
+    )
   standard_price = fields.Float(
         'Cost', compute='_compute_standard_price',
         inverse='_set_standard_price', search='_search_standard_price',
